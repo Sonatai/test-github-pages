@@ -1,0 +1,65 @@
+.tag {
+	@apply rounded-md;
+	@apply p-1;
+	@apply px-3;
+
+	@apply max-w-[5rem];
+	@apply text-center;
+	@apply m-2;
+
+	border: 1px solid;
+}
+
+.v-blue {
+	@apply bg-sky-900;
+	@apply text-sky-400;
+	@apply border-sky-400;
+}
+
+.v-green {
+	@apply bg-lime-900;
+	@apply text-lime-400;
+	@apply border-lime-400;
+}
+
+.v-purple {
+	@apply bg-violet-900;
+	@apply text-violet-400;
+	@apply border-violet-400;
+}
+
+.v-blossom {
+	@apply bg-pink-900;
+	@apply text-pink-400;
+	@apply border-pink-400;
+}
+
+.v-orange {
+	@apply bg-orange-900;
+	@apply text-orange-400;
+	@apply border-orange-400;
+}
+
+.v-amber {
+	@apply bg-amber-900;
+	@apply text-amber-400;
+	@apply border-amber-400;
+}
+
+.v-red {
+	@apply bg-red-900;
+	@apply text-red-400;
+	@apply border-red-400;
+}
+
+.v-teal {
+	@apply bg-teal-900;
+	@apply text-teal-400;
+	@apply border-teal-400;
+}
+
+.v-grey {
+	@apply bg-slate-900;
+	@apply text-slate-400;
+	@apply border-slate-400;
+}

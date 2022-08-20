@@ -10,6 +10,34 @@ const getSpec = async (file: string) => {
 	return data.data;
 };
 
+export type TKind =
+	| 'given'
+	| 'when'
+	| 'then'
+	| 'and'
+	| 'cleanup'
+	| 'where'
+	| 'expect';
+
+interface IBlock {
+	kind: TKind;
+	text: string;
+	code: string[];
+}
+
+interface IFeature {
+	id: string;
+	result: string;
+	duration: string;
+	iterations: {
+		tags: any;
+		see: any[];
+		extraInfo: any[];
+	};
+	blocks: IBlock[];
+	problems: any[];
+}
+
 interface Spec {
 	className: string;
 	statistics: {
@@ -25,22 +53,7 @@ interface Spec {
 	headers: string[];
 	tags: any;
 	see: any[];
-	features: {
-		id: string;
-		result: string;
-		duration: string;
-		iterations: {
-			tags: any;
-			see: any[];
-			extraInfo: any[];
-		};
-		blocks: {
-			kind: string;
-			text: string;
-			code: string[];
-		}[];
-		problems: any[];
-	}[];
+	features: IFeature[];
 	generator: string;
 }
 

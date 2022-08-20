@@ -2,6 +2,10 @@ import { nanoid } from 'nanoid';
 import { Fragment } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { TKind } from '../../Hooks/useGetSpec';
+
+import { Tag } from '../Tag/Tag';
+import { getTagVariant } from './getTagVariant';
 
 /*
 className === unique key for spec
@@ -32,20 +36,24 @@ export const Feature = (props: IFeature): JSX.Element => {
 			</h3>
 			<div>
 				{blocks.map((block) => (
-					<Fragment key={nanoid()}>
-						<div className='flex'>
-							<em>{block.kind}</em>
-							<div className='ml-[0.5rem]'>{block.text || '----'}</div>
+					<div key={nanoid()} className='mb-6'>
+						<div className='flex items-baseline'>
+							<Tag
+								text={block.kind.charAt(0).toUpperCase() + block.kind.slice(1)}
+								variant={getTagVariant(block.kind as TKind)}
+							/>
+
+							<div className='ml-[0.5rem] text-lg'>{block.text || '----'}</div>
 						</div>
 						{block.code.length > 0 && (
 							<SyntaxHighlighter
-								language='kotlin'
+								language='groovy'
 								style={dracula}
 								showLineNumbers>
 								{block.code.join('\n')}
 							</SyntaxHighlighter>
 						)}
-					</Fragment>
+					</div>
 				))}
 			</div>
 		</section>

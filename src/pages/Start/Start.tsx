@@ -1,9 +1,31 @@
+import { getTagVariant } from '../../components/Feature/getTagVariant';
 import { Layout } from '../../components/shared/Layout';
+import { Tag } from '../../components/Tag/Tag';
+import { TKind } from '../../Hooks/useGetSpec';
 
 export const Start = (): JSX.Element => {
+	const kinds: TKind[] = [
+		'given',
+		'when',
+		'then',
+		'and',
+		'cleanup',
+		'where',
+		'expect',
+	];
+
 	return (
 		<Layout>
 			<h1>Main Content</h1>
+			{kinds.map((kind) => (
+				<Tag
+					text={kind.charAt(0).toUpperCase() + kind.slice(1)}
+					variant={getTagVariant(kind)}
+				/>
+			))}
+			<br />
+			<br />
+
 			<p>
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
 				eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
